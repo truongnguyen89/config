@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: ecpay-config
+  profiles:
+    active: subversion
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/truongnguyen89/yml
+    stream:
+      kafka:
+        binder:
+          brokers: 192.168.130.36
+          defaultBrokerPort: 9092
+          zkNodes: 192.168.130.36
+          defaultZkPort: 2181
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.130.36:9000/eureka/
+management:
+  security:
+    enabled: false
+server:
+  port: 8888
+logging:
+  pattern:
+    console: "[%d{dd/MM/yyyy HH:mm:ss,SSS}] %m%n"
+    file: "[%d{dd/MM/yyyy HH:mm:ss,SSS}] %m%n"
